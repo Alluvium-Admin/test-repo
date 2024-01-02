@@ -1,0 +1,30 @@
+name: Python Test on dev
+
+on:
+  push:
+    branches:
+      - main  # Replace with the name of your main branch
+  pull_request:
+    branches:
+      - main  # Replace with the name of your main branch
+
+jobs:
+  test-dep:
+    runs-on: ubuntu-latest  # You can choose another runner if needed
+    environment: development
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11  # You can specify a different Python version
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt  # Replace with your project's requirements file
+
+    - name: Run tests
+      run: python -m unittest discover  # Modify the test command based on your project structure
+
