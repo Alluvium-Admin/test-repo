@@ -23,5 +23,6 @@ class TestFactorial(unittest.TestCase):
         with self.assertRaises(ValueError):
             factorial(-2)
 
+
 if __name__ == '__main__':
     unittest.main()
